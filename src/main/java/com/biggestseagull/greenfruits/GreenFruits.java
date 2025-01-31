@@ -1,12 +1,8 @@
 package com.biggestseagull.greenfruits;
 
-import java.util.Scanner;
-
 public class GreenFruits {
 
     public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Добро пожаловать в систему управления фруктами!");
         System.out.println(
@@ -24,7 +20,8 @@ public class GreenFruits {
                 """
         );
         
-        String menuOption = scanner.nextLine();
+        InputHandler.GetMenuOption();
         
+
     }
 }

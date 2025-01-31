@@ -1,5 +1,82 @@
 package com.biggestseagull.greenfruits;
 
+import java.util.Scanner;
+
 public class InputHandler {
+
+    public static void GetMenuOption() {
+        Scanner scanner = new Scanner(System.in);
+        String menuOption = scanner.nextLine();
+
+        switch (menuOption) {
+            case "1" ->
+                AddFruit();
+
+            case "2" ->
+                GetFruitList();
+
+            case "3" ->
+                GetMostExpensive();
+
+            case "4" ->
+                GetAllExpired();
+
+            case "5" ->
+                EditFruit();
+
+            case "6" ->
+                RemoveFruit();
+
+            case "7" ->
+                ExportFile();
+
+            case "8" ->
+                ImportFile();
+
+            case "9" ->
+                ExitProgram();
+
+            default ->
+                System.out.println("Введите число от 1 до 9");
+        }
+
+        scanner.close();
+    }
+
+    private static void AddFruit() {
+
+    }
+
+    private static void GetFruitList() {
+
+    }
+
+    private static void GetMostExpensive() {
+
+    }
+
+    private static void GetAllExpired() {
+
+    }
+
+    private static void EditFruit() {
+
+    }
+
+    private static void RemoveFruit() {
+
+    }
+
+    private static void ExportFile() {
+
+    }
+
+    private static void ImportFile() {
+
+    }
+
+    private static void ExitProgram() {
+
+    }
 
 }

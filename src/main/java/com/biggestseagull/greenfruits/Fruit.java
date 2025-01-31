@@ -13,7 +13,6 @@ public class Fruit {
     public String getName() {
         return this.name;
     }
-
     public void SetName(String newName) {
         this.name = newName;
     }
@@ -21,7 +20,6 @@ public class Fruit {
     public int getWeight() {
         return this.weight;
     }
-
     public void SetWeight(int newWeight) {
         this.weight = newWeight;
     }
@@ -29,7 +27,6 @@ public class Fruit {
     public float getPricePerKg() {
         return this.pricePerKg;
     }
-
     public void SetPricePerKg(float newPrice) {
         this.pricePerKg = newPrice;
     }
@@ -37,16 +34,15 @@ public class Fruit {
     public int getShelfLifeDays() {
         return this.shelfLifeDays;
     }
-
     public void SetShelfLifeDays(int newWeight) {
         this.shelfLifeDays = newWeight;
     }
 
-    private LocalDate getDateAdded() {
+    public LocalDate getDateAdded() {
         return this.dateAdded;
     }
-
-    private void SetDateAdded() {
+    public void SetDateAdded() {
         this.dateAdded = LocalDate.now();
     }
+
 }

@@ -1,0 +1,52 @@
+package com.biggestseagull.greenfruits;
+
+import java.time.LocalDate;
+
+public class Fruit {
+
+    private String name;
+    private int weight;
+    private float pricePerKg;
+    private int shelfLifeDays;
+    private LocalDate dateAdded;
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void SetName(String newName) {
+        this.name = newName;
+    }
+
+    public int getWeight() {
+        return this.weight;
+    }
+
+    public void SetWeight(int newWeight) {
+        this.weight = newWeight;
+    }
+
+    public float getPricePerKg() {
+        return this.pricePerKg;
+    }
+
+    public void SetPricePerKg(float newPrice) {
+        this.pricePerKg = newPrice;
+    }
+
+    public int getShelfLifeDays() {
+        return this.shelfLifeDays;
+    }
+
+    public void SetShelfLifeDays(int newWeight) {
+        this.shelfLifeDays = newWeight;
+    }
+
+    private LocalDate getDateAdded() {
+        return this.dateAdded;
+    }
+
+    private void SetDateAdded() {
+        this.dateAdded = LocalDate.now();
+    }
+}

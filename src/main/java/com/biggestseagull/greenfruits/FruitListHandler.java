@@ -14,9 +14,13 @@ public class FruitListHandler {
         newFruit.SetPricePerKg(pricePerKg);
         newFruit.SetShelfLifeDays(shelfLifeDays);
         newFruit.SetDateAdded();
-        
+
         // Adding to the list
         fruits.add(newFruit);
-        
+
+    }
+
+    public static void PrintList() {
+        for (Fruit fruit : fruits) {System.out.println(fruit);}
     }
 }

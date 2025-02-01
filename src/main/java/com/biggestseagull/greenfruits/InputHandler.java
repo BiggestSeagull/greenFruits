@@ -5,15 +5,33 @@ import java.util.Scanner;
 public class InputHandler {
 
     public static void MenuHandler() {
+        // Print main menu
+        System.out.println(
+                """
+                Главное меню: \n
+                1: Добавить фрукт \n
+                2: Вывести список фруктов \n
+                3: Найти самый дорогой фрукт \n
+                4: Найти фрукты с истекшим сроком годности \n
+                5: Изменить фрукт \n
+                6: Удалить фрукт \n
+                7: Сохранить список фруктов в файл \n
+                8: Загрузить список фруктов из файла \n
+                9: Выйти из программы
+                """
+        );
+        
+        // Get input from user
         Scanner scanner = new Scanner(System.in);
         String menuOption = scanner.nextLine();
 
+        // Handle input
         switch (menuOption) {
             case "1" ->
                 AddFruit();
 
             case "2" ->
-                GetFruitList();
+                PrintFruitList();
 
             case "3" ->
                 GetMostExpensive();
@@ -64,18 +82,20 @@ public class InputHandler {
         // Creating new fruit and adding it to the list
         FruitListHandler.AddFruit(name, weight, pricePerKg, shelfLifeDays);
 
+        // Go back to the menu
+        MenuHandler();
     }
 
-    private static void GetFruitList() {
-
+    private static void PrintFruitList() {
+        
     }
 
     private static void GetMostExpensive() {
-
+        
     }
 
     private static void GetAllExpired() {
-
+        
     }
 
     private static void EditFruit() {

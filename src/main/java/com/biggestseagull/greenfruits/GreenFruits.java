@@ -19,9 +19,9 @@ public class GreenFruits {
                 9: Выйти из программы
                 """
         );
-        
+
         InputHandler.GetMenuOption();
-        
+
 
     }
 }

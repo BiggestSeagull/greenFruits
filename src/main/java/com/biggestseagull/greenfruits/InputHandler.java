@@ -44,7 +44,27 @@ public class InputHandler {
     }
 
     private static void AddFruit() {
+        Scanner scanner = new Scanner(System.in);
 
+        // Getting data for new fruit
+        System.out.println("Введите название фрукта: ");
+        String name = scanner.nextLine();
+
+        System.out.println("Введите массу (гр): ");
+        int weight = scanner.nextInt();
+
+        System.out.println("Введите стоимость за килограмм: ");
+        float pricePerKg = scanner.nextFloat();
+
+        System.out.println("Введите срок годности (дни): ");
+        int shelfLifeDays = scanner.nextInt();
+
+        scanner.close();
+        
+        // Creating new fruit
+        
+        
+        
     }
 
     private static void GetFruitList() {

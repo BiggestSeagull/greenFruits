@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class InputHandler {
 
-    public static void GetMenuOption() {
+    public static void MenuHandler() {
         Scanner scanner = new Scanner(System.in);
         String menuOption = scanner.nextLine();
 

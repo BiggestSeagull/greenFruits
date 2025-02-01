@@ -1,6 +1,7 @@
 package com.biggestseagull.greenfruits;
 
 import java.util.ArrayList;
+import java.time.LocalDate;
 
 public class FruitListHandler {
 
@@ -25,27 +26,43 @@ public class FruitListHandler {
         String name;
         int weight;
         float pricePerKg;
+        int shelfLifeDays;
+        LocalDate dateAdded;
+        
         boolean isExpired;
+        
+        int iteration = 0;
 
+        System.out.println("id | Название | Масса, гр | Цена, руб/кг | Срок годности | Дата добавления | Просрочено ");
         for (Fruit fruit : fruits) {
             name = fruit.getName();
             weight = fruit.getWeight();
             pricePerKg = fruit.getPricePerKg();
+            shelfLifeDays = fruit.getShelfLifeDays();
+            dateAdded = fruit.getDateAdded();
             isExpired = fruit.isExpired();
 
+            
             if (!isExpired) {
-                System.out.printf("%s массой %d гр. стоит %f за кг. \n",
-                        name, weight, pricePerKg);
+                System.out.printf("%d | %s | %d | %f | %d | %s | Нет \n",
+                        iteration, name, weight, pricePerKg, shelfLifeDays, dateAdded);
             } else {
-                System.out.printf("Просрочено: %s массой %d гр. стоит %f за кг. \n",
-                        name, weight, pricePerKg);
+                System.out.printf("%d | %s | %d | %f | %d | %s | Да \n",
+                        iteration, name, weight, pricePerKg, shelfLifeDays, dateAdded);
             }
+            
+            iteration ++;
         }
 
     }
 
     // 3 command
     public static void PrintMostExpensive() {
+        // Catch error
+        if (isEmpty()) {
+            return;
+        }
+
         // For iterable
         float countedPrice;
 
@@ -71,11 +88,15 @@ public class FruitListHandler {
 
     // 4 command
     public static void PrintAllExpired() {
-        
+        // Catch error
+        if (isEmpty()) {
+            return;
+        }
+
         String name;
         boolean isExpired;
 
-        boolean anyExpired = false;
+        boolean isOnceExpired = false;
 
         for (int i = 0; i < fruits.size(); i++) {
             name = fruits.get(i).getName();
@@ -83,19 +104,32 @@ public class FruitListHandler {
 
             if (isExpired) {
                 // Print title if found expired. Only once
-                if (!anyExpired) {
-                    anyExpired = true;
+                if (!isOnceExpired) {
+                    isOnceExpired = true;
                     System.out.println("Просрочено:");
                 }
 
                 System.out.printf("%s. Индекс: %d. \n", name, i);
             }
-            
+
             // Show it if none of the fruits are expired
-            if (!anyExpired) {
-                System.out.println("Нет просроченных фруктов!");
+            if (!isOnceExpired) {
+                System.out.println("Нет просроченных фруктов.");
             }
         }
+    }
+
+    // 5 command
+    public static void EditFruit(int index) {
+
+    }
+
+    private static boolean isEmpty() {
+        if (fruits.isEmpty()) {
+            System.out.println("Список пуст.");
+            return true;
+        }
+        return false;
     }
 
 }

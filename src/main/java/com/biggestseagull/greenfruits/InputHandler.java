@@ -3,9 +3,9 @@ package com.biggestseagull.greenfruits;
 import java.util.Scanner;
 
 public class InputHandler {
-    
+
     private static final Scanner scanner = new Scanner(System.in);
-    
+
     public static void MenuHandler() {
         // Print main menu
         System.out.print(
@@ -22,9 +22,8 @@ public class InputHandler {
                 9: Выйти из программы
                 """
         );
-        
+
         // Get input from user
-        
         String menuOption = scanner.nextLine();
 
         // Handle input
@@ -83,7 +82,7 @@ public class InputHandler {
         FruitListHandler.AddFruit(name, weight, pricePerKg, shelfLifeDays);
 
         System.out.println("Фрукт добавлен!");
-        
+
         // Go back to the menu
         MenuHandler();
     }
@@ -101,7 +100,13 @@ public class InputHandler {
     }
 
     private static void EditFruit() {
-        
+
+
+        System.out.println("Введите номер фрукта для изменения");
+        int fruitToEdit = scanner.nextInt();
+        scanner.nextLine();
+
+
     }
 
     private static void RemoveFruit() {

@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class InputHandler {
     
-    private static Scanner scanner = new Scanner(System.in);
-
+    private static final Scanner scanner = new Scanner(System.in);
+    
     public static void MenuHandler() {
         // Print main menu
         System.out.print(
@@ -69,14 +69,15 @@ public class InputHandler {
 
         System.out.println("Введите массу (гр): ");
         int weight = scanner.nextInt();
+        scanner.nextLine();
 
         System.out.println("Введите стоимость за килограмм: ");
         float pricePerKg = scanner.nextFloat();
+        scanner.nextLine();
 
         System.out.println("Введите срок годности (дни): ");
         int shelfLifeDays = scanner.nextInt();
-
-        scanner.close();
+        scanner.nextLine();
 
         // Creating new fruit and adding it to the list
         FruitListHandler.AddFruit(name, weight, pricePerKg, shelfLifeDays);

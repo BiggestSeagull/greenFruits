@@ -45,4 +45,13 @@ public class Fruit {
         this.dateAdded = LocalDate.now();
     }
 
+    public boolean isExpired() {
+        if (LocalDate.now().isAfter(this.dateAdded.plusDays(this.shelfLifeDays))) {
+            // Fruit IS expired
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

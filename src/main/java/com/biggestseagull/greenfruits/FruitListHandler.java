@@ -15,7 +15,7 @@ public class FruitListHandler {
         newFruit.SetShelfLifeDays(shelfLifeDays);
         newFruit.SetDateAdded();
         
-        // Adding to list
+        // Adding to the list
         fruits.add(newFruit);
         
     }

@@ -3,6 +3,8 @@ package com.biggestseagull.greenfruits;
 import java.util.Scanner;
 
 public class InputHandler {
+    
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void MenuHandler() {
         // Print main menu
@@ -22,7 +24,7 @@ public class InputHandler {
         );
         
         // Get input from user
-        Scanner scanner = new Scanner(System.in);
+        
         String menuOption = scanner.nextLine();
 
         // Handle input
@@ -57,12 +59,9 @@ public class InputHandler {
             default ->
                 System.out.println("Введите число от 1 до 9");
         }
-
-        scanner.close();
     }
 
     private static void AddFruit() {
-        Scanner scanner = new Scanner(System.in);
 
         // Getting data for new fruit
         System.out.println("Введите название фрукта: ");
@@ -117,7 +116,7 @@ public class InputHandler {
     }
 
     private static void ExitProgram() {
-
+        scanner.close();
     }
 
 }

@@ -39,7 +39,7 @@ public class InputHandler {
                 PrintMostExpensive();
 
             case "4" ->
-                GetAllExpired();
+                PrintAllExpired();
 
             case "5" ->
                 EditFruit();
@@ -97,11 +97,11 @@ public class InputHandler {
     }
 
     private static void PrintAllExpired() {
-        
+        FruitListHandler.PrintAllExpired();
     }
 
     private static void EditFruit() {
-
+        
     }
 
     private static void RemoveFruit() {

@@ -68,8 +68,34 @@ public class FruitListHandler {
         System.out.printf("Самый дорогой фрукт: %s. Стоимость: %f.",
                 fruits.get(indexOfMostExpensive).getName(), mostExpensive);
     }
-    
+
     // 4 command
-    
+    public static void PrintAllExpired() {
+        
+        String name;
+        boolean isExpired;
+
+        boolean anyExpired = false;
+
+        for (int i = 0; i < fruits.size(); i++) {
+            name = fruits.get(i).getName();
+            isExpired = fruits.get(i).isExpired();
+
+            if (isExpired) {
+                // Print title if found expired. Only once
+                if (!anyExpired) {
+                    anyExpired = true;
+                    System.out.println("Просрочено:");
+                }
+
+                System.out.printf("%s. Индекс: %d. \n", name, i);
+            }
+            
+            // Show it if none of the fruits are expired
+            if (!anyExpired) {
+                System.out.println("Нет просроченных фруктов!");
+            }
+        }
+    }
 
 }

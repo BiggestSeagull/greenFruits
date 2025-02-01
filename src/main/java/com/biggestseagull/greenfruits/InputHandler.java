@@ -6,17 +6,17 @@ public class InputHandler {
 
     public static void MenuHandler() {
         // Print main menu
-        System.out.println(
+        System.out.print(
                 """
-                Главное меню: \n
-                1: Добавить фрукт \n
-                2: Вывести список фруктов \n
-                3: Найти самый дорогой фрукт \n
-                4: Найти фрукты с истекшим сроком годности \n
-                5: Изменить фрукт \n
-                6: Удалить фрукт \n
-                7: Сохранить список фруктов в файл \n
-                8: Загрузить список фруктов из файла \n
+                Главное меню:
+                1: Добавить фрукт
+                2: Вывести список фруктов
+                3: Найти самый дорогой фрукт
+                4: Найти фрукты с истекшим сроком годности
+                5: Изменить фрукт
+                6: Удалить фрукт
+                7: Сохранить список фруктов в файл
+                8: Загрузить список фруктов из файла
                 9: Выйти из программы
                 """
         );
@@ -82,12 +82,14 @@ public class InputHandler {
         // Creating new fruit and adding it to the list
         FruitListHandler.AddFruit(name, weight, pricePerKg, shelfLifeDays);
 
+        System.out.println("Фрукт добавлен!");
+        
         // Go back to the menu
         MenuHandler();
     }
 
     private static void PrintFruitList() {
-        
+        FruitListHandler.PrintList();
     }
 
     private static void GetMostExpensive() {

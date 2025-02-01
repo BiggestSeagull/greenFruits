@@ -9,7 +9,16 @@ public class Fruit {
     private float pricePerKg;
     private int shelfLifeDays;
     private LocalDate dateAdded;
-
+    
+    public boolean isExpired() {
+        if (LocalDate.now().isAfter(this.dateAdded.plusDays(this.shelfLifeDays))) {
+            // Fruit IS expired
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     public String getName() {
         return this.name;
     }
@@ -45,13 +54,6 @@ public class Fruit {
         this.dateAdded = LocalDate.now();
     }
 
-    public boolean isExpired() {
-        if (LocalDate.now().isAfter(this.dateAdded.plusDays(this.shelfLifeDays))) {
-            // Fruit IS expired
-            return true;
-        } else {
-            return false;
-        }
-    }
+    
 
 }

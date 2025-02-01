@@ -26,7 +26,7 @@ public class FruitListHandler {
         int weight;
         float pricePerKg;
         boolean isExpired;
-        
+
         for (Fruit fruit : fruits) {
             name = fruit.getName();
             weight = fruit.getWeight();
@@ -41,7 +41,35 @@ public class FruitListHandler {
                         name, weight, pricePerKg);
             }
         }
-        
-        
+
     }
+
+    // 3 command
+    public static void PrintMostExpensive() {
+        // For iterable
+        float countedPrice;
+
+        // For output
+        float mostExpensive = Float.MIN_VALUE;
+        int indexOfMostExpensive = -1;
+
+        for (int i = 0; i < fruits.size(); i++) {
+            // Counting value of iterable fruit
+            countedPrice = fruits.get(i).getWeight()
+                    / 1000f * fruits.get(i).getPricePerKg();
+
+            // Compare prices of iterable and most expensive. Choose the most
+            if (countedPrice > mostExpensive) {
+                mostExpensive = countedPrice;
+                indexOfMostExpensive = i;
+            }
+        }
+
+        System.out.printf("Самый дорогой фрукт: %s. Стоимость: %f.",
+                fruits.get(indexOfMostExpensive).getName(), mostExpensive);
+    }
+    
+    // 4 command
+    
+
 }

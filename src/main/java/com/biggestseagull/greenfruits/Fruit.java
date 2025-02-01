@@ -34,8 +34,8 @@ public class Fruit {
     public int getShelfLifeDays() {
         return this.shelfLifeDays;
     }
-    public void SetShelfLifeDays(int newWeight) {
-        this.shelfLifeDays = newWeight;
+    public void SetShelfLifeDays(int newShelfLifeDays) {
+        this.shelfLifeDays = newShelfLifeDays;
     }
 
     public LocalDate getDateAdded() {

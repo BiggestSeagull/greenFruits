@@ -60,11 +60,10 @@ public class InputHandler {
         int shelfLifeDays = scanner.nextInt();
 
         scanner.close();
-        
-        // Creating new fruit
-        
-        
-        
+
+        // Creating new fruit and adding it to the list
+        FruitListHandler.AddFruit(name, weight, pricePerKg, shelfLifeDays);
+
     }
 
     private static void GetFruitList() {

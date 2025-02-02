@@ -19,6 +19,14 @@ public class Fruit {
         }
     }
     
+    public Fruit(String name, int weight, float pricePerKg, int shelfLifeDays){
+        this.name = name;
+        this.weight = weight;
+        this.pricePerKg = pricePerKg;
+        this.shelfLifeDays = shelfLifeDays;
+        this.dateAdded = LocalDate.now();
+    }
+    
     public String getName() {
         return this.name;
     }
@@ -50,10 +58,4 @@ public class Fruit {
     public LocalDate getDateAdded() {
         return this.dateAdded;
     }
-    public void SetDateAdded() {
-        this.dateAdded = LocalDate.now();
-    }
-
-    
-
 }

@@ -16,16 +16,9 @@ public class FruitListHandler {
     }
 
     // 1 command in menu
-    public static void addFruit(String name, int weight, float pricePerKg, int shelfLifeDays) {
-        // Creating new object with input data
-        Fruit newFruit = new Fruit();
-        newFruit.SetName(name);
-        newFruit.SetWeight(weight);
-        newFruit.SetPricePerKg(pricePerKg);
-        newFruit.SetShelfLifeDays(shelfLifeDays);
-        newFruit.SetDateAdded();
+    public static void addFruit(String name, int weight, float pricePerKg, int shelfLifeDays) {        // Creating new object with input data
+        Fruit newFruit = new Fruit(name, weight, pricePerKg, shelfLifeDays);
 
-        // Adding to the list
         fruits.add(newFruit);
     }
 
@@ -65,7 +58,6 @@ public class FruitListHandler {
 
             iteration++;
         }
-
     }
 
     // 3 command
@@ -187,4 +179,5 @@ public class FruitListHandler {
     public static void exportList() {
         
     }
+
 }

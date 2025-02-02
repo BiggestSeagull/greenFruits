@@ -134,7 +134,7 @@ public class InputHandler {
         int fruitIndex = getFruitInput();
 
         FruitListHandler.removeFromList(fruitIndex);
-        
+
         backToMenu();
     }
 

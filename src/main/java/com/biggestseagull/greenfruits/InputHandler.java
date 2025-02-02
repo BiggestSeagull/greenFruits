@@ -146,6 +146,7 @@ public class InputHandler {
 
     private static void exitProgram() {
         scanner.close();
+        System.exit(0);
     }
 
     private static void backToMenu() {

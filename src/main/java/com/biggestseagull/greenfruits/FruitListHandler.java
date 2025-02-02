@@ -35,7 +35,7 @@ public class FruitListHandler {
         if (isEmpty()) {
             return;
         }
-        
+
         String name;
         int weight;
         float pricePerKg;
@@ -137,7 +137,7 @@ public class FruitListHandler {
         if (isEmpty()) {
             return;
         }
-        
+
         Fruit editableFruit = fruits.get(fruitIndex);
 
         switch (fieldToEdit) {
@@ -177,10 +177,14 @@ public class FruitListHandler {
 
         return parsedValue;
     }
-    
+
     // 6 command
-    public static void removeFromList(int index){
+    public static void removeFromList(int index) {
         fruits.remove(index);
     }
 
+    // 7 command
+    public static void exportList() {
+        
+    }
 }

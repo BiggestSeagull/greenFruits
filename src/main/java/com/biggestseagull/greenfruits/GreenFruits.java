@@ -11,7 +11,7 @@ public class GreenFruits {
 
         System.out.println("Добро пожаловать в систему управления фруктами!");
 
-        InputHandler.MenuHandler();
+        InputHandler.menuHandler();
 
 
     }

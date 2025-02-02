@@ -6,7 +6,7 @@ public class InputHandler {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void MenuHandler() {
+    public static void menuHandler() {
         // Print main menu
         System.out.print(
                 """
@@ -29,100 +29,159 @@ public class InputHandler {
         // Handle input
         switch (menuOption) {
             case "1" ->
-                AddFruit();
+                addFruit();
 
             case "2" ->
-                PrintFruitList();
+                printFruitList();
 
             case "3" ->
-                PrintMostExpensive();
+                printMostExpensive();
 
             case "4" ->
-                PrintAllExpired();
+                printAllExpired();
 
             case "5" ->
-                EditFruit();
+                editFruit();
 
             case "6" ->
-                RemoveFruit();
+                removeFruit();
 
             case "7" ->
-                ExportFile();
+                exportFile();
 
             case "8" ->
-                ImportFile();
+                importFile();
 
             case "9" ->
-                ExitProgram();
+                exitProgram();
 
             default ->
-                System.out.println("Введите число от 1 до 9");
+                backToMenu();
         }
     }
 
-    private static void AddFruit() {
+    private static void addFruit() {
 
         // Getting data for new fruit
-        System.out.println("Введите название фрукта: ");
+        System.out.print("Введите название фрукта: ");
         String name = scanner.nextLine();
 
-        System.out.println("Введите массу (гр): ");
+        System.out.print("Введите массу (гр): ");
         int weight = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.println("Введите стоимость за килограмм: ");
+        System.out.print("Введите стоимость за килограмм: ");
         float pricePerKg = scanner.nextFloat();
         scanner.nextLine();
 
-        System.out.println("Введите срок годности (дни): ");
+        System.out.print("Введите срок годности (дни): ");
         int shelfLifeDays = scanner.nextInt();
         scanner.nextLine();
 
         // Creating new fruit and adding it to the list
-        FruitListHandler.AddFruit(name, weight, pricePerKg, shelfLifeDays);
-
+        FruitListHandler.addFruit(name, weight, pricePerKg, shelfLifeDays);
         System.out.println("Фрукт добавлен!");
 
-        // Go back to the menu
-        MenuHandler();
+        backToMenu();
     }
 
-    private static void PrintFruitList() {
-        FruitListHandler.PrintList();
+    private static void printFruitList() {
+        FruitListHandler.printList();
+
+        backToMenu();
     }
 
-    private static void PrintMostExpensive() {
-        FruitListHandler.PrintMostExpensive();
+    private static void printMostExpensive() {
+        FruitListHandler.printMostExpensive();
+
+        backToMenu();
     }
 
-    private static void PrintAllExpired() {
-        FruitListHandler.PrintAllExpired();
+    private static void printAllExpired() {
+        FruitListHandler.printAllExpired();
+
+        backToMenu();
     }
 
-    private static void EditFruit() {
+    private static void editFruit() {
+        int fruitIndex = getFruitInput();
 
-
-        System.out.println("Введите номер фрукта для изменения");
-        int fruitToEdit = scanner.nextInt();
+        // Get field
+        System.out.println(
+                """
+                Введите номер поля для изменения:
+                1: Название фрукта
+                2: Масса
+                3: Стоимость за килограмм
+                4: Срок годности
+                """
+        );
+        System.out.print("Введите номер поля для редактирования:");
+        int fieldIndex = scanner.nextInt();
         scanner.nextLine();
 
+        // Get new value
+        System.out.print("Введите новое значение:");
+        String newValue = scanner.nextLine();
+
+        // Transfer data to manager
+        FruitListHandler.editFruit(fruitIndex, fieldIndex, newValue);
+
+        backToMenu();
+    }
+
+    private static void removeFruit() {
+        int fruitIndex = getFruitInput();
+
+        FruitListHandler.removeFromList(fruitIndex);
+    }
+
+    private static void exportFile() {
 
     }
 
-    private static void RemoveFruit() {
+    private static void importFile() {
 
     }
 
-    private static void ExportFile() {
-
-    }
-
-    private static void ImportFile() {
-
-    }
-
-    private static void ExitProgram() {
+    private static void exitProgram() {
         scanner.close();
     }
 
+    private static void backToMenu() {
+        System.out.println("Чтобы вернуться, введите 1");
+
+        int goBack;
+        while (true) {
+            goBack = scanner.nextInt();
+            scanner.nextLine();
+
+            if (goBack == 1) {
+                menuHandler();
+                return;
+            } else {
+                unknownInputExeption();
+            }
+
+        }
+    }
+
+    private static void unknownInputExeption() {
+        System.out.println("Ввод не распознан");
+    }
+
+    private static int getFruitInput() {
+        if (FruitListHandler.isEmpty()) {
+            backToMenu();
+        }
+
+        FruitListHandler.printList();
+
+        // Get fruit
+        System.out.print("Введите id фрукта:");
+        int fruitIndex = scanner.nextInt();
+        scanner.nextLine();
+
+        return fruitIndex;
+    }
 }

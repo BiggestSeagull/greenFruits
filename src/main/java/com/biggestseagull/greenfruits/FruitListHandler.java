@@ -7,8 +7,16 @@ public class FruitListHandler {
 
     static ArrayList<Fruit> fruits = new ArrayList<>();
 
+    public static boolean isEmpty() {
+        if (fruits.isEmpty()) {
+            System.out.println("Список пуст.");
+            return true;
+        }
+        return false;
+    }
+
     // 1 command in menu
-    public static void AddFruit(String name, int weight, float pricePerKg, int shelfLifeDays) {
+    public static void addFruit(String name, int weight, float pricePerKg, int shelfLifeDays) {
         // Creating new object with input data
         Fruit newFruit = new Fruit();
         newFruit.SetName(name);
@@ -22,15 +30,20 @@ public class FruitListHandler {
     }
 
     // 2 command in menu
-    public static void PrintList() {
+    public static void printList() {
+        // Catch error
+        if (isEmpty()) {
+            return;
+        }
+        
         String name;
         int weight;
         float pricePerKg;
         int shelfLifeDays;
         LocalDate dateAdded;
-        
+
         boolean isExpired;
-        
+
         int iteration = 0;
 
         System.out.println("id | Название | Масса, гр | Цена, руб/кг | Срок годности | Дата добавления | Просрочено ");
@@ -42,7 +55,6 @@ public class FruitListHandler {
             dateAdded = fruit.getDateAdded();
             isExpired = fruit.isExpired();
 
-            
             if (!isExpired) {
                 System.out.printf("%d | %s | %d | %f | %d | %s | Нет \n",
                         iteration, name, weight, pricePerKg, shelfLifeDays, dateAdded);
@@ -50,14 +62,14 @@ public class FruitListHandler {
                 System.out.printf("%d | %s | %d | %f | %d | %s | Да \n",
                         iteration, name, weight, pricePerKg, shelfLifeDays, dateAdded);
             }
-            
-            iteration ++;
+
+            iteration++;
         }
 
     }
 
     // 3 command
-    public static void PrintMostExpensive() {
+    public static void printMostExpensive() {
         // Catch error
         if (isEmpty()) {
             return;
@@ -82,12 +94,12 @@ public class FruitListHandler {
             }
         }
 
-        System.out.printf("Самый дорогой фрукт: %s. Стоимость: %f.",
+        System.out.printf("Самый дорогой фрукт: %s. Стоимость: %f рублей. \n",
                 fruits.get(indexOfMostExpensive).getName(), mostExpensive);
     }
 
     // 4 command
-    public static void PrintAllExpired() {
+    public static void printAllExpired() {
         // Catch error
         if (isEmpty()) {
             return;
@@ -120,16 +132,55 @@ public class FruitListHandler {
     }
 
     // 5 command
-    public static void EditFruit(int index) {
+    public static void editFruit(int fruitIndex, int fieldToEdit, String inputValue) {
+        // Catch error
+        if (isEmpty()) {
+            return;
+        }
+        
+        Fruit editableFruit = fruits.get(fruitIndex);
 
+        switch (fieldToEdit) {
+            case 1 ->
+                editableFruit.SetName(inputValue);
+            case 2 ->
+                editableFruit.SetWeight(parseInt(inputValue));
+            case 3 ->
+                editableFruit.SetPricePerKg(parseFloat(inputValue));
+            case 4 ->
+                editableFruit.SetShelfLifeDays(parseInt(inputValue));
+            default ->
+                throw new AssertionError();
+        }
     }
 
-    private static boolean isEmpty() {
-        if (fruits.isEmpty()) {
-            System.out.println("Список пуст.");
-            return true;
+    private static int parseInt(String input) {
+        int parsedValue;
+
+        try {
+            parsedValue = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new AssertionError();
         }
-        return false;
+
+        return parsedValue;
+    }
+
+    private static float parseFloat(String input) {
+        float parsedValue;
+
+        try {
+            parsedValue = Float.parseFloat(input);
+        } catch (NumberFormatException e) {
+            throw new AssertionError();
+        }
+
+        return parsedValue;
+    }
+    
+    // 6 command
+    public static void removeFromList(int index){
+        fruits.remove(index);
     }
 
 }

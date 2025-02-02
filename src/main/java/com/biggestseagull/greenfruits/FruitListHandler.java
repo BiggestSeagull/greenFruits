@@ -134,13 +134,13 @@ public class FruitListHandler {
 
         switch (fieldToEdit) {
             case 1 ->
-                editableFruit.SetName(inputValue);
+                editableFruit.setName(inputValue);
             case 2 ->
-                editableFruit.SetWeight(parseInt(inputValue));
+                editableFruit.setWeight(parseInt(inputValue));
             case 3 ->
-                editableFruit.SetPricePerKg(parseFloat(inputValue));
+                editableFruit.setPricePerKg(parseFloat(inputValue));
             case 4 ->
-                editableFruit.SetShelfLifeDays(parseInt(inputValue));
+                editableFruit.setShelfLifeDays(parseInt(inputValue));
             default ->
                 throw new AssertionError();
         }

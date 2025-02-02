@@ -134,10 +134,12 @@ public class InputHandler {
         int fruitIndex = getFruitInput();
 
         FruitListHandler.removeFromList(fruitIndex);
+        
+        backToMenu();
     }
 
     private static void exportFile() {
-
+        FruitListHandler.exportList();
     }
 
     private static void importFile() {
@@ -163,7 +165,6 @@ public class InputHandler {
             } else {
                 unknownInputExeption();
             }
-
         }
     }
 

@@ -115,11 +115,10 @@ public class FruitListHandler {
 
                 System.out.printf("%s. Индекс: %d. \n", name, i);
             }
-
-            // Show it if none of the fruits are expired
-            if (!isOnceExpired) {
-                System.out.println("Нет просроченных фруктов.");
-            }
+        }
+        // Show it if none of the fruits are expired
+        if (!isOnceExpired) {
+            System.out.println("Нет просроченных фруктов.");
         }
     }
 
@@ -177,11 +176,11 @@ public class FruitListHandler {
 
     // 7 command
     public static void exportList() {
-        
+
     }
-    
+
     // 8 command
     public static void importList() {
-        
+
     }
 }

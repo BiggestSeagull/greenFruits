@@ -8,7 +8,7 @@ public class Fruit {
     private int weight;
     private float pricePerKg;
     private int shelfLifeDays;
-    private LocalDate dateAdded;
+    private final LocalDate dateAdded;
     
     public boolean isExpired() {
         if (LocalDate.now().isAfter(this.dateAdded.plusDays(this.shelfLifeDays))) {
@@ -30,28 +30,28 @@ public class Fruit {
     public String getName() {
         return this.name;
     }
-    public void SetName(String newName) {
+    public void setName(String newName) {
         this.name = newName;
     }
 
     public int getWeight() {
         return this.weight;
     }
-    public void SetWeight(int newWeight) {
+    public void setWeight(int newWeight) {
         this.weight = newWeight;
     }
 
     public float getPricePerKg() {
         return this.pricePerKg;
     }
-    public void SetPricePerKg(float newPrice) {
+    public void setPricePerKg(float newPrice) {
         this.pricePerKg = newPrice;
     }
 
     public int getShelfLifeDays() {
         return this.shelfLifeDays;
     }
-    public void SetShelfLifeDays(int newShelfLifeDays) {
+    public void setShelfLifeDays(int newShelfLifeDays) {
         this.shelfLifeDays = newShelfLifeDays;
     }
 

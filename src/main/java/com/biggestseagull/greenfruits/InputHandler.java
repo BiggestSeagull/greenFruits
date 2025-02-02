@@ -143,7 +143,7 @@ public class InputHandler {
     }
 
     private static void importFile() {
-
+        FruitListHandler.importList();
     }
 
     private static void exitProgram() {
@@ -163,12 +163,12 @@ public class InputHandler {
                 menuHandler();
                 return;
             } else {
-                unknownInputExeption();
+                unknownInputExсeption();
             }
         }
     }
 
-    private static void unknownInputExeption() {
+    private static void unknownInputExсeption() {
         System.out.println("Ввод не распознан");
     }
 

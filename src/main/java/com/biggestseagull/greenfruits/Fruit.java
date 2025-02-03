@@ -57,6 +57,6 @@ public class Fruit implements Serializable {
     }
 
     public LocalDate getDateAdded() {
-        return this.dateAdded;
+        return this.DATE_ADDED;
     }
 }

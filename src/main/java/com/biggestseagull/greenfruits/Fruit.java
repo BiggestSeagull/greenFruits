@@ -1,17 +1,18 @@
 package com.biggestseagull.greenfruits;
 
 import java.time.LocalDate;
+import java.io.Serializable;
 
-public class Fruit {
+public class Fruit implements Serializable {
 
     private String name;
     private int weight;
     private float pricePerKg;
     private int shelfLifeDays;
-    private final LocalDate dateAdded;
+    private final LocalDate DATE_ADDED;
     
     public boolean isExpired() {
-        if (LocalDate.now().isAfter(this.dateAdded.plusDays(this.shelfLifeDays))) {
+        if (LocalDate.now().isAfter(this.DATE_ADDED.plusDays(this.shelfLifeDays))) {
             // Fruit IS expired
             return true;
         } else {
@@ -24,7 +25,7 @@ public class Fruit {
         this.weight = weight;
         this.pricePerKg = pricePerKg;
         this.shelfLifeDays = shelfLifeDays;
-        this.dateAdded = LocalDate.now();
+        this.DATE_ADDED = LocalDate.now();
     }
     
     public String getName() {

@@ -1,6 +1,7 @@
 package com.biggestseagull.greenfruits;
 
-import java.io.*;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 
 public class GreenFruits {
 
@@ -8,7 +9,7 @@ public class GreenFruits {
     // Fixes encoding problem for console
     public static void main(String[] args) throws UnsupportedEncodingException {
         System.setOut(new PrintStream(System.out, true, "UTF-8"));
-
+        
         System.out.println("Добро пожаловать в систему управления фруктами!");
 
         InputHandler.menuHandler();

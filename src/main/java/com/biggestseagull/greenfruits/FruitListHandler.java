@@ -175,12 +175,12 @@ public class FruitListHandler {
     }
 
     // 7 command
-    public static void exportList() {
-
+    public static void saveList() {
+        SaveHandler.saveFile(fruits);
     }
 
     // 8 command
-    public static void importList() {
-
+    public static void loadList() {
+        SaveHandler.loadFile(fruits);
     }
 }

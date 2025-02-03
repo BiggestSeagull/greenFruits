@@ -47,10 +47,10 @@ public class InputHandler {
                 removeFruit();
 
             case "7" ->
-                exportFile();
+                saveFile();
 
             case "8" ->
-                importFile();
+                loadFile();
 
             case "9" ->
                 exitProgram();
@@ -138,12 +138,16 @@ public class InputHandler {
         backToMenu();
     }
 
-    private static void exportFile() {
-        FruitListHandler.exportList();
+    private static void saveFile() {
+        FruitListHandler.saveList();
+        
+        backToMenu();
     }
 
-    private static void importFile() {
-        FruitListHandler.importList();
+    private static void loadFile() {
+        FruitListHandler.loadList();
+        
+        backToMenu();
     }
 
     private static void exitProgram() {

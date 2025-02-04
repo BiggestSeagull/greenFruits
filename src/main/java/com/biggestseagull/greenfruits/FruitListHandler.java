@@ -172,6 +172,8 @@ public class FruitListHandler {
     // 6 command
     public static void removeFromList(int index) {
         fruits.remove(index);
+        
+        System.out.println("Фрукт удален.");
     }
 
     // 7 command
